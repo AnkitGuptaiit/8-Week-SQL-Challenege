@@ -1,4 +1,5 @@
 CREATE SCHEMA dannys_diner;
+SET search_path = dannys_diner;
 
 CREATE TABLE sales (
   "customer_id" VARCHAR(1),
@@ -50,15 +51,6 @@ INSERT INTO members
 VALUES
   ('A', '2021-01-07'),
   ('B', '2021-01-09');
-
-SELECT *
-FROM dbo.members;
-
-SELECT *
-FROM dbo.menu;
-
-SELECT *
-FROM dbo.sales;
 
 ------------------------
 --CASE STUDY QUESTIONS--
