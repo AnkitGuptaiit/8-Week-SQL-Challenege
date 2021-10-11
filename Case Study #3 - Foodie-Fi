@@ -1,1 +1,27 @@
+SELECT 
+	s.customer_id, 
+    s.plan_id, 
+    p.plan_name, 
+    s.start_date
+FROM foodie_fi.subscriptions AS s 
+JOIN foodie_fi.plans AS p 
+	ON s.plan_id = p.plan_id
+ WHERE s.customer_id IN ('1','2','11','13','15','16','18','19')
+ ORDER BY s.customer_id ASC, s.start_date;
 
+
+1.
+SELECT COUNT(DISTINCT customer_id) AS unique_customer 
+FROM foodie_fi.subscriptions;
+
+2.
+SELECT 
+	DATE_PART('MONTH', start_date) AS month_date, 
+    TO_CHAR(start_date, 'MONTH') AS month_name, 
+    COUNT(plan_id) AS trial_subscriptions
+FROM foodie_fi.subscriptions 
+WHERE plan_id = '0' 
+GROUP BY month_date, month_name 
+ORDER BY month_date;
+
+3. 
